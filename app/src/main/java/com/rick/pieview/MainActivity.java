@@ -3,6 +3,9 @@ package com.rick.pieview;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
+import com.rick.pieview.view.PieData;
+import com.rick.pieview.view.PieView;
+
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {

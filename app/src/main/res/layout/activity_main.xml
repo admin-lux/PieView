@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context="com.rick.pieview.MainActivity">
 
-    <com.rick.pieview.PieView
+    <com.rick.pieview.view.PieView
         android:id="@+id/pie_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />

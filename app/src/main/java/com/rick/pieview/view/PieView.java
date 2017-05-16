@@ -1,4 +1,4 @@
-package com.rick.pieview;
+package com.rick.pieview.view;
 
 import android.content.Context;
 import android.graphics.Canvas;
