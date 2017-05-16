@@ -73,17 +73,20 @@ public class PieView extends View {
             PieData pie = mData.get(i);
             mPaint.setColor(pie.getColor());
             canvas.drawArc(rectF, currentStartAngle, pie.getAngle(), true, mPaint);
-            currentStartAngle += pie.getAngle();
 
             canvas.save();
-            canvas.translate(-mWidth / 2, -mHeight / 2);
+            canvas.rotate(currentStartAngle + (pie.getAngle() / 2));
+//            canvas.translate(mWidth / 8, mHeight / 8);
 //            RectF colorRect = new RectF(mCurrentPoint.x, mCurrentPoint.y, mCurrentPoint.x + mColorRectSideLength, mCurrentPoint.y + mColorRectSideLength);
 //            Path path = new Path();
 //            path.addRect(colorRect, Path.Direction.CCW);
-            mPaint.setColor(Color.WHITE);
+            mPaint.setColor(Color.BLACK);
 //            canvas.drawTextOnPath(pie.getName(), path, 0, 0, mPaint);
-            canvas.drawText(pie.getName(), mWidth / 2, mHeight / 2, mPaint);
+            mPaint.setTextSize(100);
+            canvas.drawText(pie.getName(), 0, 0, mPaint);
             canvas.restore();
+
+            currentStartAngle += pie.getAngle();
         }
 
     }
