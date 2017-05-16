@@ -2,7 +2,9 @@ package com.rick.pieview;
 
 import android.content.Context;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.PointF;
 import android.graphics.RectF;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
@@ -24,6 +26,13 @@ public class PieView extends View {
     private ArrayList<PieData> mData;
     private int mWidth, mHeight;
     private Paint mPaint = new Paint();
+
+    //文字色块部分
+    private PointF mStartPoint = new PointF(20, 20);
+    private PointF mCurrentPoint = new PointF(mStartPoint.x, mStartPoint.y);
+    private float mColorRectSideLength = 20;
+    private float mTextInterval = 10;
+    private float mRowMaxLength;
 
 
     public PieView(Context context) {
@@ -65,6 +74,16 @@ public class PieView extends View {
             mPaint.setColor(pie.getColor());
             canvas.drawArc(rectF, currentStartAngle, pie.getAngle(), true, mPaint);
             currentStartAngle += pie.getAngle();
+
+            canvas.save();
+            canvas.translate(-mWidth / 2, -mHeight / 2);
+//            RectF colorRect = new RectF(mCurrentPoint.x, mCurrentPoint.y, mCurrentPoint.x + mColorRectSideLength, mCurrentPoint.y + mColorRectSideLength);
+//            Path path = new Path();
+//            path.addRect(colorRect, Path.Direction.CCW);
+            mPaint.setColor(Color.WHITE);
+//            canvas.drawTextOnPath(pie.getName(), path, 0, 0, mPaint);
+            canvas.drawText(pie.getName(), mWidth / 2, mHeight / 2, mPaint);
+            canvas.restore();
         }
 
     }
