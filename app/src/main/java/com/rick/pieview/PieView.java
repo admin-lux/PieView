@@ -82,7 +82,7 @@ public class PieView extends View {
 //            path.addRect(colorRect, Path.Direction.CCW);
             mPaint.setColor(Color.BLACK);
 //            canvas.drawTextOnPath(pie.getName(), path, 0, 0, mPaint);
-            mPaint.setTextSize(100);
+            mPaint.setTextSize(20);
             canvas.drawText(pie.getName(), 0, 0, mPaint);
             canvas.restore();
 
